@@ -49,6 +49,23 @@
                     </ul>
                 </li>
 
+                <li class="nav-item">
+                    <a href="#" class="nav-link <?= (basename($_SERVER['PHP_SELF']) == 'download.php') ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-speedometer"></i>
+                        <p>
+                            Report
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: <?= (basename($_SERVER['PHP_SELF']) == 'download.php') ? 'block' : 'none' ?>;">
+                        <li class="nav-item">
+                            <a href="<?= BASE_URL ?>/reports/download.php" class="nav-link <?= (basename($_SERVER['PHP_SELF']) == 'download.php') ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Event Report</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
