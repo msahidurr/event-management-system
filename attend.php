@@ -4,7 +4,7 @@ session_start();
 require_once 'config.php';
 require_once APP_PATH . '/db.php';
 
-$event_id = (int)$_GET['id'] ?? 0;
+$event_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $stmt = $conn->prepare("SELECT * FROM events WHERE id = ? AND date >= NOW()");
 $stmt->bind_param("i", $event_id);
 $stmt->execute();
@@ -47,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "Sorry, the event is full. You cannot register for this event.";
         }
     } else {
-        $error = "Invalid event or the event has already passed.";
+        header('Location: ' . BASE_URL . '/index.php');
+        exit();
     }
 }
 require_once APP_PATH . '/includes/layout/header.php';
@@ -78,9 +79,9 @@ require_once APP_PATH . '/includes/layout/header.php';
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= BASE_URL ?>/attend.php?id=<?= $event['id'] ?>" method="post" class="needs-validation" novalidate="">
+                    <form action="<?= BASE_URL ?>/attend.php?id=<?= isset($event['id']) ? $event['id'] : 0 ?>" method="post" class="needs-validation" novalidate="">
                         <div class="card-header">
-                            <h3 class="card-title">Attend (<?= $event['name'] ?>)</h3>
+                            <h3 class="card-title">Attend (<?= isset($event['name']) ? $event['name'] : '' ?>)</h3>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
