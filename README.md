@@ -50,6 +50,13 @@ $ cd event-management-system
   ```
 - Open in the browser: `http:domain.com`
 
+### 6. Credentials
+- Start a local server:
+  ```email: admin@gmail.com
+  password: 123456
+  ```
+- Open in the browser: `http:domain.com`
+
 ## API Endpoints
 - **Get all events**: `GET /api/events`
 - **Get event by ID**: `GET /api/events?id=1`
