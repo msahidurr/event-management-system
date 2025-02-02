@@ -51,8 +51,8 @@ $ cd event-management-system
 - Open in the browser: `http:domain.com`
 
 ### 6. Credentials
-- Start a local server:
-  ```email: admin@gmail.com
+  ```sh
+  email: admin@gmail.com
   password: 123456
   ```
 - Open in the browser: `http:domain.com`
