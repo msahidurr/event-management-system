@@ -18,23 +18,15 @@
             <li class="nav-item dropdown user-menu">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <img
-                        src="<?php echo BASE_URL ?>/assets/adminlte/img/user2-160x160.jpg"
+                        src="<?= BASE_URL ?>/assets/adminlte/img/user2-160x160.jpg"
                         class="user-image rounded-circle shadow"
                         alt="User Image" />
-                    <span class="d-none d-md-inline">Alexander Pierce</span>
+                    <span class="d-none d-md-inline"><?= $_SESSION['username'] ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                    <!--begin::User Image-->
-                    <li class="user-header text-bg-primary">
-                        <img
-                            src="<?php echo BASE_URL ?>/assets/adminlte/img/user2-160x160.jpg"
-                            class="rounded-circle shadow"
-                            alt="User Image" />
-                    </li>
-
                     <!--begin::Menu Footer-->
                     <li class="user-footer">
-                        <a href="<?php echo BASE_URL ?>/logout.php" class="btn btn-default btn-flat float-end">Sign out</a>
+                        <a href="<?= BASE_URL ?>/logout.php" class="btn btn-default">Sign out</a>
                     </li>
                     <!--end::Menu Footer-->
                 </ul>

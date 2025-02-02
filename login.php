@@ -4,7 +4,7 @@ require_once 'config.php';
 require_once APP_PATH . '/db.php';
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: '. BASE_URL . '/index.php');
+    header('Location: '. BASE_URL . '/dashboard.php');
     exit();
 }
 
@@ -12,16 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $stmt->store_result();
-    $stmt->bind_result($id, $hashed_password);
+    $stmt->bind_result($id, $username, $hashed_password);
 
     if ($stmt->fetch() && password_verify($password, $hashed_password)) {
         session_start();
         $_SESSION['user_id'] = $id;
-        header('Location: '. BASE_URL . '/index.php');
+        $_SESSION['username'] = $username; // Store username in session
+        header('Location: '. BASE_URL . '/dashboard.php');
         exit();
     } else {
         $error = "Invalid email or password.";

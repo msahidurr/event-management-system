@@ -3,15 +3,15 @@
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
         <!--begin::Brand Link-->
-        <a href="<?php echo BASE_URL ?>/index.php" class="brand-link">
+        <a href="<?= BASE_URL ?>/index.php" class="brand-link">
             <!--begin::Brand Image-->
             <img
-                src="<?php echo BASE_URL ?>/assets/adminlte/img/AdminLTELogo.png"
+                src="<?= BASE_URL ?>/assets/adminlte/img/AdminLTELogo.png"
                 alt="AdminLTE Logo"
                 class="brand-image opacity-75 shadow" />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
-            <span class="brand-text fw-light">AdminLTE 4</span>
+            <span class="brand-text fw-light"><?= APP_NAME ?></span>
             <!--end::Brand Text-->
         </a>
         <!--end::Brand Link-->
@@ -26,28 +26,29 @@
                 role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= BASE_URL ?>/dashboard.php" class="nav-link <?= (basename($_SERVER['PHP_SELF']) == 'dashboard.php') ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-speedometer"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link <?= in_array(basename($_SERVER['PHP_SELF']), ['list.php', 'create.php', 'edit.php']) ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-speedometer"></i>
                         <p>
                             Event
                             <i class="nav-arrow bi bi-chevron-right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <ul class="nav nav-treeview" style="display: <?= in_array(basename($_SERVER['PHP_SELF']), ['list.php', 'create.php', 'edit.php']) ? 'block' : 'none' ?>;">
                         <li class="nav-item">
-                            <a href="<?php echo BASE_URL ?>/events/create.php" class="nav-link">
-                                <i class="nav-icon bi bi-circle"></i>
-                                <p>Create Event</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?php echo BASE_URL ?>/events/create.php" class="nav-link">
+                            <a href="<?= BASE_URL ?>/events/list.php" class="nav-link <?= in_array(basename($_SERVER['PHP_SELF']), ['list.php', 'create.php', 'edit.php']) ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Manage Events</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+
             </ul>
         </nav>
     </div>
