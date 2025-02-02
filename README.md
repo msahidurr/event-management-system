@@ -46,13 +46,13 @@ $ cd event-management-system
 ### 5. Run the Application
 - Start a local server:
   ```sh
-  $ php -S localhost:8000
+  $ php -S index.html
   ```
 - Open in the browser: `http:domain.com`
 
 ## API Endpoints
 - **Get all events**: `GET /api/events`
-- **Get event by ID**: `GET /api/events/{id}`
+- **Get event by ID**: `GET /api/events?id=1`
 
 ## Troubleshooting
 - **Permission Errors**: Ensure correct ownership and file permissions.
