@@ -34,7 +34,7 @@ require_once APP_PATH . '/includes/layout/header.php';
 <body class="login-page bg-body-secondary">
     <div class="login-box">
         <div class="login-logo">
-            <b>Admin</b>LTE
+            <b><?= APP_NAME ?></b>
         </div>
         <!-- /.login-logo -->
         <div class="card">

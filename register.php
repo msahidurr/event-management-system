@@ -28,7 +28,7 @@ require_once APP_PATH . '/includes/layout/header.php';
 
 <body class="register-page bg-body-secondary">
     <div class="register-box">
-        <div class="register-logo"><b>Admin</b>LTE</div>
+        <div class="register-logo"><b><?= APP_NAME ?></b></div>
         <!-- /.register-logo -->
         <div class="card">
             <div class="card-body register-card-body">
