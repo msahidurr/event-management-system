@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 PHP;
 
-            if (file_put_contents($config_file, $config_content)) {
+            if (@file_put_contents($config_file, $config_content)) {
                 header("Location:" . BASE_URL . "/index.php");
                 exit();
             } else {
@@ -148,27 +148,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="app_name">App Name</label>
-                                <input type="text" name="app_name" class="form-control" required="true">
+                                <input type="text" name="app_name" class="form-control" required="true" value="<?= isset($_POST['app_name']) ? $_POST['app_name'] : '' ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="db_host">Database Host</label>
-                                <input type="text" name="db_host" class="form-control" value="localhost" required>
+                                <input type="text" name="db_host" class="form-control" value="<?= isset($_POST['db_host']) ? $_POST['db_host'] : 'localhost' ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="database_name">Database Name</label>
-                                <input type="text" name="db_name" class="form-control" required>
+                                <input type="text" name="db_name" class="form-control" required value="<?= isset($_POST['db_name']) ? $_POST['db_name'] : '' ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="db_user">Database User</label>
-                                <input type="text" name="db_user" class="form-control" required>
+                                <input type="text" name="db_user" class="form-control" required value="<?= isset($_POST['db_user']) ? $_POST['db_user'] : '' ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="db_pass">Database Password</label>
-                                <input type="text" name="db_pass" class="form-control">
+                                <input type="text" name="db_pass" class="form-control" >
                             </div>
                         </div>
 
