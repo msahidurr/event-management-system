@@ -25,7 +25,7 @@ $ cd event-management-system
   ```
 
 ### 3. Configure Application
-- Rename `config.example.php` to `config.php` and update database credentials:
+- `config.php` update database credentials:
   ```php
   define('DB_HOST', 'localhost');
   define('DB_USER', 'root');
@@ -46,7 +46,7 @@ $ cd event-management-system
 ### 5. Run the Application
 - Start a local server:
   ```sh
-  $ php -S index.html
+  $ php -S index.php
   ```
 - Open in the browser: `http:domain.com`
 
