@@ -1,6 +1,7 @@
 <?php
 header("Content-Type: application/json");
 require_once APP_PATH .'/config.php';
+require_once APP_PATH . '/db.php';
 
 // Get the request method
 $method = $_SERVER['REQUEST_METHOD'];
